@@ -1,0 +1,56 @@
+{% extends 'inventory/base.html' %}
+{% block body %}
+
+<br>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Availability</th>
+            <th>Quantity</th>
+
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for pr in product %}
+        <tr>
+            <td>{{pr.pk}}</td>
+            <td>{{pr.type}}</td>
+            <td>{{pr.price}} $</td>
+            <td>{{pr.status}}</td>
+            <td>{{pr.Quantity }}</td>
+              {% if header|lower == "laptop" %}
+        <td>
+            <a href="{% url 'edit_laptop' pr.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+            <a href="{% url 'delete_laptop' pr.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > X</a>
+
+        </td>
+        {% elif header|lower == "desktop" %}
+        <td>
+            <a href="{% url 'edit_desktop' pr.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+            <a href="{% url 'delete_desktop' pr.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > X</a>
+
+        </td>
+        {% elif header|lower == 'mobile' %}
+        <td>
+            <a href="{% url 'edit_mobile' pr.pk %}" class="btn btn-warning btn-sm" role="button" aria-pressed="true" > Edit</a>
+            <a href="{% url 'delete_mobile' pr.pk %}" class="btn btn-danger btn-sm" role="button" aria-pressed="true" > X</a>
+
+        </td>
+        {% endif %}
+
+
+
+        </tr>
+        {% endfor %}
+
+
+
+    </tbody>
+    </table>
+
+    {% endblock body %}

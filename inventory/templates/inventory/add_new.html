@@ -1,0 +1,23 @@
+{% extends 'inventory/base.html' %}
+
+{% block body %}
+<div class="container">
+
+  <form action="" method="POST"> {% csrf_token %}
+    {{form.non_field_errors}}
+    {% for field in form  %}
+    <div class="row">
+      <div class="col-5">
+    <div class="mb-3">
+    {{field.label_tag}} {{field}} <small class="text-danger">{{field.errors|striptags}}</small>
+    </div>
+  </div>
+</div>
+    {% endfor %}
+    <input type="submit" value="Add Product" class="btn btn-primary">
+    <a href="{% url 'index' %}" class="btn btn-danger">cancel</a>
+ </form>
+
+</div>
+
+{% endblock body %}

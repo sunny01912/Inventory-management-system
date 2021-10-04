@@ -1,0 +1,28 @@
+{% extends 'inventory/base.html' %}
+
+{% block body %}
+<div class="container">
+
+<form method="POST"> 
+{% csrf_token %}
+    {% for field in form %}
+    <div class="row g-3 align-items-center mb-3">
+        <div class="col-1">
+          <label for="id_{{field.name}}" class="col-form-label">{{field.label}}</label>
+        </div>
+        <div class="col-3">
+          {{field}}
+        </div>
+      
+      </div>
+      
+
+      {% endfor %}
+      {% comment %} <button class=" btn btn-primary" type="submit">Add Device</button> {% endcomment %}
+      <input type="submit" value="Update" class="btn btn-primary">
+
+</form>
+
+</div>
+
+{% endblock body %}
