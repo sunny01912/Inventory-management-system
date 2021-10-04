@@ -6,4 +6,4 @@ Inventory management system to manage the inventory of a electronics shop.
 * 2 - download python3 from "https://www.python.org/downloads/".
 * 3  - write  the "pip install django" command on cmd  to download django on your machine. 
 * 4 - cd into project "Inventory-management-system-master" .
-* 5 - python manage.py runserver .
+* 5 - Enter  "python manage.py runserver"  command on CMD  to run server. 
